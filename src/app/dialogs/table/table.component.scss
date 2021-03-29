@@ -1,0 +1,32 @@
+.container {
+  height: 100%;
+}
+
+.esri-feature-table {
+  height: 305px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 5px;
+  padding-right: 20%;
+
+  .esri-button {
+    width: auto;
+    border-radius: 15px;
+    margin-right: 10px;
+  }
+
+  .excel {
+    background-color: #107d11;
+    border-color: #107d11;
+  }
+
+  .shapefile {
+    background-color: #ffba01;
+    border-color: #ffba01;
+    color: black;
+  }
+}

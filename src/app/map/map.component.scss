@@ -1,0 +1,23 @@
+::ng-deep .p-dialog {
+  width: 800px;
+  height: 400px;
+
+  .p-dialog-header {
+    padding: 0.5em !important;
+    font-weight: 400 !important;
+    background-color: #f4f4f4;
+
+    .p-dialog-title {
+      font-size: 16px;
+    }
+  }
+
+  .p-dialog-content {
+    padding: 5px;
+    height: inherit;
+
+    .table {
+      height: 100%;
+    }
+  }
+}

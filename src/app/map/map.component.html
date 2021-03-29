@@ -1,0 +1,8 @@
+<div id="map" #mapViewNode></div>
+
+<p-dialog header="Tabla de atributos" [(visible)]="displayTable" position="bottomright" [focusOnShow]="false"
+  (onHide)="hideTable()">
+  <div class="table" *ngIf="displayTable">
+    <app-table [_this]="this" [layer]="featureLayer" [features]="features"></app-table>
+  </div>
+</p-dialog>
