@@ -34,7 +34,7 @@ export class MapComponent implements OnInit {
     });
 
     const featureLayer = new FeatureLayer({
-      url: 'https://geovisor.anh.gov.co/server/rest/services/Tierras/Mapa_ANH/MapServer/7',
+      url: 'https://geovisor.anh.gov.co/server/rest/services/Tierras/Mapa_ANH/MapServer/1',
     });
     this.map.add(featureLayer);
 

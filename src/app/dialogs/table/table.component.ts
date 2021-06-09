@@ -81,7 +81,8 @@ export class TableComponent implements OnInit {
 
 	public downloadExcel(): void {
 		const attributes: Array<any> = [];
-		const features = this.featuresSelected.length > 0 ? this.featuresSelected : this.features;
+		const features = this.featuresSelected.length === 0 ? this.features :
+      this.featuresSelected.map(feature => { return feature.featureWithAttributes });
 
 		features.forEach((feature) => {
 			const attr = feature.attributes;
@@ -100,20 +101,12 @@ export class TableComponent implements OnInit {
 	}
 
 	public downloadShapeFile(): void {
-		const features = this.featuresSelected.length > 0 ? this.featuresSelected : this.features;
-		const objectIdField = this.layer.objectIdField;
-		const featureIds = features.map(function (feature) {
-			return feature.getAttribute(objectIdField);
-		});
-		console.log(featureIds);
-		const query = {
-			objectIds: featureIds,
-			returnGeometry: true
-		};
-
-		this.layer.queryFeatures(query).then((result) => {
-			this.downloadFromQuery(result.features);
-		});
+		if (this.featuresSelected.length > 0) {
+      const features = this.featuresSelected.map(feature => { return feature.featureWithGeometry });
+      this.downloadFromQuery(features);
+    } else {
+      //
+    }
 	}
 
 	private downloadFromQuery(features: any): void {
